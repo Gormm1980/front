@@ -1,18 +1,20 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  // Target: https://go.nuxtjs.dev/config-target
+  target: 'static',
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - front',
-    title: 'front',
+    titleTemplate: '%s - frontend',
+    title: 'frontend',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { hid: 'description', name: 'description', content: '' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -38,8 +40,16 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/apollo',
   ],
-
+  
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'http://localhost:1337/graphql',
+      }
+    }
+  },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
