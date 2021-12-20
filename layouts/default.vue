@@ -6,7 +6,7 @@
     :clipped="$vuetify.breakpoint.lgAndUp"
     >
       <div>
-        botones
+        botones {{counter}}
       </div>
     </v-navigation-drawer>
 
@@ -40,6 +40,11 @@ export default {
     return {
       drawer:false,
       title:"LEC COQ"
+    }
+  },
+  computed:{
+    counter(){
+      return this.$store.getters.readCounter
     }
   }
 }
